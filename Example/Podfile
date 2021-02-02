@@ -1,0 +1,6 @@
+use_frameworks!
+target 'JISUTILS_Tests' do
+  pod 'JISUTILS', :path => '../'
+  
+  
+end
