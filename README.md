@@ -22,7 +22,7 @@ pod 'JISUTILS'
 
 ## Author
 
-JangIsaac, jis@flexis.co.kr
+JangIsaac, dltkr717@gmail.com
 
 ## License
 
