@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 import SystemConfiguration
 
-class JNet {
+public class JNet {
     private var jnet : JNet?
-    func shared() throws -> JNet {
+    public func shared() throws -> JNet {
         if jnet == nil {
             throw JNetError.initialFailed
         }
@@ -21,19 +21,19 @@ class JNet {
     }
     
     private var urlComponents = URLComponents()
-    init(scheme: String, url: String, port: Int) {
+    public init(scheme: String, url: String, port: Int) {
         urlComponents.scheme = scheme
         urlComponents.host = url
         urlComponents.port = port
         jnet = self
     }
     
-    enum JNetError : Error {
+    public enum JNetError : Error {
         case urlConvFailed
         case initialFailed
     }
     
-    enum HTTPMethod : String {
+    public enum HTTPMethod : String {
         case CONNECT
         case DELETE
         case GET
@@ -215,10 +215,10 @@ class JNet {
         return nil
     }
     
-    func callSuccess(_ params: Data) {
+    private func callSuccess(_ params: Data) {
         self.successClosure?(params)
     }
-    func callLocalFail(_ params: String) {
+    private func callLocalFail(_ params: String) {
         self.localFailClosure?(params)
     }
     

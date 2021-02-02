@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension String {
+public extension String {
     var uni2String: String {
         let mutableString = NSMutableString(string: self)
         CFStringTransform(mutableString, nil, "Any-Hex/Java" as NSString, true)

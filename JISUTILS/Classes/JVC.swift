@@ -8,15 +8,15 @@
 import Foundation
 import UIKit
 
-class JVC: UIViewController {
+public class JVC: UIViewController {
     
-    var screenWidth : CGFloat = UIScreen.main.bounds.size.width
-    var screenHeight : CGFloat = UIScreen.main.bounds.size.height
+    public var screenWidth : CGFloat = UIScreen.main.bounds.size.width
+    public var screenHeight : CGFloat = UIScreen.main.bounds.size.height
     
-    let picker = UIImagePickerController()
+    private let picker = UIImagePickerController()
     
-    var lastTitle = ""
-    var vSpinner : UIView?
+    private var lastTitle = ""
+    private var vSpinner : UIView?
     
     private var lastNaviBackImage : UIImage?
     private var lastNaviShdImage : UIImage?
@@ -24,9 +24,9 @@ class JVC: UIViewController {
     private var imagePickerComplete : ((UIImage)->Void)?
     private var imagePickerFailed : (()->Void)?
     
-    var screenNotMoveByKeyboard = true
+    public var screenNotMoveByKeyboard = true
     private var screenMovedAlready = false
-    var lastOrigin : CGFloat = 0
+    public var lastOrigin : CGFloat = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.interactivePopGestureRecognizer?.delegate = nil

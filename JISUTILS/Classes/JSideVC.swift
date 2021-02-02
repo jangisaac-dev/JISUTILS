@@ -10,7 +10,7 @@ import UIKit
 
 import UIKit
 
-class JSideVC: JVC {
+public class JSideVC: JVC {
     
     var menuPadding : CGFloat = 90
     var backgroundView = UIView()

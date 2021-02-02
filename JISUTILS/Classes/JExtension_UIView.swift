@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension UIView {
+public extension UIView {
 
     @IBInspectable var cornerRadius: CGFloat {
         get {

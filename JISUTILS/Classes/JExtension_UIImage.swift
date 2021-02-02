@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     
     var getData : Data? {
         return UIImageJPEGRepresentation(self, 1)

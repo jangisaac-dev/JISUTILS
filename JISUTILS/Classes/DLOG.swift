@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DLOG {
+public class DLOG {
     public static func e<T>(_ object: T?, filename: String = #file, line: Int = #line, funcName: String = #function) {
         #if DEBUG
         let th = Thread.current.isMainThread ? "main": Thread.current.name ?? "-"

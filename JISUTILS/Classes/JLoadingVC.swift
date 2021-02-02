@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class JLoadingVC: UIViewController {
+public class JLoadingVC: UIViewController {
     
     
     override func viewDidLoad() {

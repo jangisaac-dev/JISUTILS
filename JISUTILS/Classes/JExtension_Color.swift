@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-extension UIColor {
+public extension UIColor {
     
     static func rgbToUIColor(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
         return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
