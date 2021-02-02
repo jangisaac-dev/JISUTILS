@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JISUTILS'
-  s.version          = '0.1.0'
-  s.summary          = 'JISUTILS : personal util - 0.1.0-beta'
+  s.version          = '0.1.01'
+  s.summary          = 'JISUTILS : personal util - beta 1'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
