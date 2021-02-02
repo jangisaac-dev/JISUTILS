@@ -19,7 +19,7 @@ public class JSideVC: JVC {
     
     private var horizontalConstraint: NSLayoutConstraint!
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         initDefaultViews()
@@ -69,14 +69,14 @@ public class JSideVC: JVC {
         ])
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         
         showAnimation()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
     }

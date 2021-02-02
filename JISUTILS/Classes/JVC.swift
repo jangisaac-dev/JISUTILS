@@ -27,25 +27,25 @@ public class JVC: UIViewController {
     public var screenNotMoveByKeyboard = true
     private var screenMovedAlready = false
     public var lastOrigin : CGFloat = 0
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         addKeyboardNotification()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
 
         // needed to clear the text in the back navigation:
         self.navigationItem.title = " "
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = lastTitle
     }
     
-   public func setTitle(title: String) {
+    public func setTitle(title: String) {
         lastTitle = title
         self.title = title
     }
@@ -68,7 +68,7 @@ public class JVC: UIViewController {
             )
     }
     
-   public func showSpinner(onView : UIView) {
+    public func showSpinner(onView : UIView) {
         let spinnerView = UIView.init(frame: onView.bounds)
         spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
         let ai = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
@@ -83,7 +83,7 @@ public class JVC: UIViewController {
         vSpinner = spinnerView
     }
     
-   public func removeSpinner() {
+    public func removeSpinner() {
         DispatchQueue.main.async {
             self.vSpinner?.removeFromSuperview()
             self.vSpinner = nil
@@ -119,23 +119,23 @@ public class JVC: UIViewController {
         screenMovedAlready = false
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
           self.view.endEditing(true)
     }
     
-   public func removeNavigationBorder() {
+    public func removeNavigationBorder() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
     }
     
-   public func showNavigationBorder() {
+    public func showNavigationBorder() {
         self.navigationController?.navigationBar.setBackgroundImage(nil, for:.default)
         self.navigationController?.navigationBar.shadowImage = nil
         self.navigationController?.navigationBar.layoutIfNeeded()
     }
     
-   public func goBack() {
+    public func goBack() {
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -155,7 +155,7 @@ public class JVC: UIViewController {
         }
     }
     
-   public func openSelectImageFrom(_ complete : @escaping ((UIImage?)->Void), _ failed : @escaping (()->Void)) {
+    public func openSelectImageFrom(_ complete : @escaping ((UIImage?)->Void), _ failed : @escaping (()->Void)) {
         imagePickerComplete = complete
         imagePickerFailed = failed
         picker.delegate = self
@@ -176,7 +176,7 @@ public class JVC: UIViewController {
     
     let loadingVC = JLoadingVC()
     
-   public func showLoadingAlert() {
+    public func showLoadingAlert() {
         loadingVC.modalTransitionStyle = .crossDissolve
         loadingVC.modalPresentationStyle = .overCurrentContext
         
@@ -188,7 +188,7 @@ public class JVC: UIViewController {
 //        }
     }
     
-   public func hideLoadingAlert() {
+    public func hideLoadingAlert() {
         loadingVC.dismiss(animated: true, completion: nil)
 //        if let tabBar = self.tabBarController as? TRMTabBarController {
 //            if let mainTop = tabBar.getMainNaviTopController() {
@@ -197,7 +197,7 @@ public class JVC: UIViewController {
 //        }
     }
         
-   public func showDatePicker(done: @escaping ((Date)->Void), defDate: Date?) {
+    public func showDatePicker(done: @escaping ((Date)->Void), defDate: Date?) {
         let myDatePicker: UIDatePicker = UIDatePicker()
         myDatePicker.locale = Locale.current
         myDatePicker.datePickerMode = .date
@@ -220,7 +220,7 @@ public class JVC: UIViewController {
         present(alertController, animated: true)
     }
     
-   public func showTimePicker(done: @escaping ((Date)->Void), defDate: Date?, minuteInterval: Int? = 10) {
+    public func showTimePicker(done: @escaping ((Date)->Void), defDate: Date?, minuteInterval: Int? = 10) {
         let myDatePicker: UIDatePicker = UIDatePicker()
         
         myDatePicker.locale = Locale.current
@@ -248,7 +248,7 @@ public class JVC: UIViewController {
     var selectPickerStringArray : [[String]] = []
     var lastSelectRow : [Int] = []
     var compNumber = 1
-   public func showStringPicker(done: @escaping (([String], [Int])->Void),
+    public func showStringPicker(done: @escaping (([String], [Int])->Void),
                           list: [[String]],
                           initalSelection: [Int]?,
                           count : Int = 1) {
@@ -356,7 +356,7 @@ public class JVC: UIViewController {
         viewLoading.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onIgnoredClick)))
     }
     
-   public func getLoadingView() -> UIView {
+    public func getLoadingView() -> UIView {
         let newView = UIView()
         let viewBack = UIView()
         viewBack.translatesAutoresizingMaskIntoConstraints = false
@@ -390,11 +390,11 @@ public class JVC: UIViewController {
         return newView
     }
     
-   public func updateLoadingView(str: String) {
+    public func updateLoadingView(str: String) {
         lbLoading.text = str
     }
     
-   public func showLoadingView(str: String) {
+    public func showLoadingView(str: String) {
         if viewLoading.superview == nil {
             initLoadingView()
         }
@@ -409,7 +409,7 @@ public class JVC: UIViewController {
         }
     }
     
-   public func showLoadingView() {
+    public func showLoadingView() {
         if viewLoading.superview == nil {
             initLoadingView()
         }
@@ -423,7 +423,7 @@ public class JVC: UIViewController {
         }
     }
     
-   public func hideLoadingView() {
+    public func hideLoadingView() {
         UIView.animate(withDuration: 1) {
             self.viewLoading.alpha = 0
         } completion: { (result) in
@@ -431,12 +431,12 @@ public class JVC: UIViewController {
         }
     }
     
-   public func getFrontLoadingView() {
+    public func getFrontLoadingView() {
         self.viewLoading.bringSubview(toFront: view)
     }
     
     @objc
-   public func onIgnoredClick() {
+    public func onIgnoredClick() {
         
     }
     
