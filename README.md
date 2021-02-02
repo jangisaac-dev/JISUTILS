@@ -26,4 +26,4 @@ JangIsaac, dltkr717@gmail.com
 
 ## License
 
-JISUTILS is available under the MIT license. See the LICENSE file for more info.
+jutils is available under the MIT license. See the [LICENSE](https://github.com/jangisaac-dev/JISUTILS/blob/master/LICENSE) file for more info.
