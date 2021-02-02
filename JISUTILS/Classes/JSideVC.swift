@@ -10,16 +10,16 @@ import UIKit
 
 import UIKit
 
-public class JSideVC: JVC {
+open class JSideVC: JVC {
     
-    var menuPadding : CGFloat = 90
-    var backgroundView = UIView()
-    var mainFrame = UIView()
-    var isLeftMenu = true
+    public var menuPadding : CGFloat = 90
+    public var backgroundView = UIView()
+    public var mainFrame = UIView()
+    public var isLeftMenu = true
     
     private var horizontalConstraint: NSLayoutConstraint!
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         initDefaultViews()

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DefAlertUtils {
+open class DefAlertUtils {
     public static func showAlert(viewController: UIViewController?,title: String, msg: String, buttonTitle: String, handler: ((UIAlertAction) -> Swift.Void)?){
             
           let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)

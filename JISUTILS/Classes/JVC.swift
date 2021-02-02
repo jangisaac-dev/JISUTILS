@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public class JVC: UIViewController {
+open class JVC: UIViewController {
     
     public var screenWidth : CGFloat = UIScreen.main.bounds.size.width
     public var screenHeight : CGFloat = UIScreen.main.bounds.size.height
@@ -27,20 +27,20 @@ public class JVC: UIViewController {
     public var screenNotMoveByKeyboard = true
     private var screenMovedAlready = false
     public var lastOrigin : CGFloat = 0
-    public override func viewDidLoad() {
+    open override  func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         addKeyboardNotification()
     }
     
-    public override func viewWillDisappear(_ animated: Bool) {
+    open override  func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
 
         // needed to clear the text in the back navigation:
         self.navigationItem.title = " "
     }
 
-    public override func viewWillAppear(_ animated: Bool) {
+    open override  func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = lastTitle
     }

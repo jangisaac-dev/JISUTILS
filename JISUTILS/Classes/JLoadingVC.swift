@@ -7,14 +7,16 @@
 
 import UIKit
 
-public class JLoadingVC: UIViewController {
+open class JLoadingVC: UIViewController {
     
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initialize()
     }
     
-    public func initialize() {
+    private func initialize() {
         view.backgroundColor = .black
         view.alpha = 0.5
 
