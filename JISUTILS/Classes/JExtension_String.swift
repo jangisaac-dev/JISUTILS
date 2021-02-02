@@ -8,15 +8,15 @@
 import Foundation
 import UIKit
 
-public extension String {
-    var uni2String: String {
+extension String {
+    public var uni2String: String {
         let mutableString = NSMutableString(string: self)
         CFStringTransform(mutableString, nil, "Any-Hex/Java" as NSString, true)
 
         return mutableString as String
     }
     
-    var getTimeString: String {
+    public var getTimeString: String {
         var str = self
         
         let i = str.index(str.startIndex, offsetBy: 2)
@@ -24,7 +24,7 @@ public extension String {
         return str
     }
     
-    func attrString(color: UIColor, font: UIFont) -> NSAttributedString {
+    public func attrString(color: UIColor, font: UIFont) -> NSAttributedString {
         let attrs = [
             NSAttributedString.Key.foregroundColor: color,
             NSAttributedString.Key.font: font
@@ -32,15 +32,15 @@ public extension String {
         return NSAttributedString(string: self, attributes: attrs )
     }
     
-    func attrString(color: UIColor) -> NSAttributedString {
+    public func attrString(color: UIColor) -> NSAttributedString {
         return NSAttributedString(string: self, attributes: [ NSAttributedString.Key.foregroundColor: color ])
     }
     
-    func attrString(font: UIFont) -> NSAttributedString {
+    public func attrString(font: UIFont) -> NSAttributedString {
         return NSAttributedString(string: self, attributes: [ NSAttributedString.Key.font: font ])
     }
     
-    func attrString(_ underLine: Bool = true) -> NSAttributedString {
+    public func attrString(_ underLine: Bool = true) -> NSAttributedString {
         return NSAttributedString(string: self, attributes: [ NSAttributedString.Key.underlineStyle: NSUnderlineStyle.styleSingle.rawValue ])
     }
     
@@ -52,22 +52,22 @@ public extension String {
             return NSAttributedString()
         }
     }
-    var html2String: String {
+    public var html2String: String {
         return htmlToAttributedString?.string ?? ""
     }
     
-    var encodeUrl : String? {
+    public var encodeUrl : String? {
         return self.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
     }
-    var decodeUrl : String? {
+    public var decodeUrl : String? {
         return self.removingPercentEncoding
     }
     
-    var localized: String {
+    public  var localized: String {
        return NSLocalizedString(self, tableName: "Localizable", value: self, comment: "")
     }
     
-    func getYMDate(fm: String) -> Date? {
+    public func getYMDate(fm: String) -> Date? {
         let format = DateFormatter()
         format.dateFormat = fm
         return format.date(from: self)
@@ -99,7 +99,7 @@ public extension String {
         return dF.date(from: self)?.getCustom(format: outputFormat) ?? ""
     }
     
-    var CGFloatValue : CGFloat? {
+    public var CGFloatValue : CGFloat? {
         guard let doubleValue = Double(self) else {
             return nil
         }
@@ -107,7 +107,7 @@ public extension String {
         return CGFloat(doubleValue)
     }
     
-    var toUIColor : UIColor {
+    public var toUIColor : UIColor {
         var cString:String = self.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
         if (cString.hasPrefix("#")) {

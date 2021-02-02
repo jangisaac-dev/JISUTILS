@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 
-public extension UIColor {
+extension UIColor {
     
-    static func rgbToUIColor(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
+    public static func rgbToUIColor(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
         return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }
     
-    func toHexString() -> String {
+    public func toHexString() -> String {
         var r:CGFloat = 0
         var g:CGFloat = 0
         var b:CGFloat = 0
@@ -28,7 +28,7 @@ public extension UIColor {
         return String(format:"#%06x", rgb)
     }
     
-    var toRGBA: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {
+    public var toRGBA: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {
         var fRed : CGFloat = 0
         var fGreen : CGFloat = 0
         var fBlue : CGFloat = 0
@@ -46,7 +46,7 @@ public extension UIColor {
         }
     }
     
-    func colorConvert(to color: UIColor, multiplier _multiplier: CGFloat) -> UIColor? {
+    public func colorConvert(to color: UIColor, multiplier _multiplier: CGFloat) -> UIColor? {
         let multiplier = min(max(_multiplier, 0), 1)
 
         let components = cgColor.components ?? []

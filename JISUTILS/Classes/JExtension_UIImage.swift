@@ -8,37 +8,37 @@
 import Foundation
 import UIKit
 
-public extension UIImage {
+extension UIImage {
     
-    var getData : Data? {
+    public var getData : Data? {
         return UIImageJPEGRepresentation(self, 1)
     }
     
-    func compressToMb(_ expectedSizeInMb:CGFloat) -> UIImage? {
+    public func compressToMb(_ expectedSizeInMb:CGFloat) -> UIImage? {
         let sizeInBytes = expectedSizeInMb * 1000 * 1000
         var needCompress:Bool = true
         var imgData:Data?
         var compressingValue:CGFloat = 1.0
         while (needCompress && compressingValue > 0.0) {
             if let data:Data = UIImageJPEGRepresentation(self, compressingValue) {
-            if CGFloat(data.count) < sizeInBytes {
-                needCompress = false
-                imgData = data
-            } else {
-                compressingValue -= 0.2
+                if CGFloat(data.count) < sizeInBytes {
+                    needCompress = false
+                    imgData = data
+                } else {
+                    compressingValue -= 0.2
+                }
             }
         }
-    }
-        
-    if let data = imgData {
-        if (CGFloat(data.count) < sizeInBytes) {
-            return UIImage(data: data)
+            
+        if let data = imgData {
+            if (CGFloat(data.count) < sizeInBytes) {
+                return UIImage(data: data)
+            }
         }
-    }
         return nil
     }
     
-    func compressToKb(_ expectedSizeInKb:CGFloat) -> UIImage? {
+    public func compressToKb(_ expectedSizeInKb:CGFloat) -> UIImage? {
         let sizeInBytes = expectedSizeInKb * 1000
         var needCompress:Bool = true
         var imgData:Data?
@@ -75,7 +75,7 @@ public extension UIImage {
         return nil
     }
     
-    func resized(toWidth width: CGFloat, isOpaque: Bool = true) -> UIImage? {
+    public func resized(toWidth width: CGFloat, isOpaque: Bool = true) -> UIImage? {
         let canvas = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
         let format = imageRendererFormat
         format.opaque = isOpaque

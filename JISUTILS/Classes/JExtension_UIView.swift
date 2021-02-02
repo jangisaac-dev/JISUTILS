@@ -7,9 +7,10 @@
 
 import Foundation
 
-public extension UIView {
+extension UIView {
 
-    @IBInspectable var cornerRadius: CGFloat {
+    @IBInspectable
+    public var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -21,7 +22,8 @@ public extension UIView {
         }
     }
 
-    @IBInspectable var borderWidth: CGFloat {
+    @IBInspectable
+    public var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -30,7 +32,8 @@ public extension UIView {
         }
     }
 
-    @IBInspectable var borderColor: UIColor? {
+    @IBInspectable
+    public var borderColor: UIColor? {
         get {
             return UIColor(cgColor: layer.borderColor!)
         }
@@ -39,7 +42,8 @@ public extension UIView {
         }
     }
     
-    @IBInspectable var halfRound: Bool {
+    @IBInspectable
+    public var halfRound: Bool {
         set {
             if (!newValue) {
                 return
@@ -51,7 +55,8 @@ public extension UIView {
         }
     }
     
-    @IBInspectable var setShadow: Bool {
+    @IBInspectable
+    public var setShadow: Bool {
         set {
             if (!newValue) {
                 return
@@ -72,7 +77,7 @@ public extension UIView {
 
 
 extension CALayer {
-  func applySketchShadow(
+  public func applySketchShadow(
     color: UIColor = .black,
     alpha: Float = 0.5,
     x: CGFloat = 0,

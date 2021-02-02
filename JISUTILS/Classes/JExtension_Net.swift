@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension URLComponents {
+extension URLComponents {
     
     public func asURL() throws -> URL {
         guard let url = url else { throw JNet.JNetError.urlConvFailed }
